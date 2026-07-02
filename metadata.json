@@ -1,0 +1,6 @@
+{
+  "name": "HOUSE OF FASHIONS",
+  "description": "A premium luxury fashion e-commerce experience with interactive motion design and editorial aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

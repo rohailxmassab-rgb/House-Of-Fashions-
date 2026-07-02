@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Outfit:wght@100;200;300;400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-serif: "Bodoni Moda", serif;
+
+  --color-luxury-gold: #C5A059;
+  --color-luxury-gold-dark: #A67C00;
+  --color-luxury-bg: #0A0A0A;
+  --color-luxury-surface: #121212;
+  --color-luxury-card: #181818;
+  --color-luxury-border: rgba(255, 255, 255, 0.05);
+  --color-luxury-border-light: rgba(255, 255, 255, 0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-luxury-bg text-white antialiased selection:bg-luxury-gold selection:text-black;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv11";
+  }
+}
+
+.luxury-heading {
+  @apply font-serif italic tracking-tighter;
+}
+
+.luxury-label {
+  @apply font-display text-[9px] uppercase tracking-[0.5em] font-medium text-white/40;
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.glass-morphism {
+  @apply bg-white/5 backdrop-blur-2xl border border-white/10;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E0A3 50%, #B8860B 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #F5E0A3 50%, #B8860B 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.animate-skeleton {
+  @apply relative overflow-hidden bg-white/5;
+}
+
+.animate-skeleton::after {
+  @apply absolute inset-0 content-[''];
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-luxury-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-luxury-border rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-luxury-gold/50;
+}
+
+/* Hide navigation on splash/onboarding if needed handled by logic */
+/* Responsive Container */
+.app-container {
+  @apply min-h-screen bg-luxury-bg relative overflow-x-hidden;
+}
+
+.content-wrapper {
+  @apply max-w-7xl mx-auto px-6 md:px-12 lg:px-20;
+}
